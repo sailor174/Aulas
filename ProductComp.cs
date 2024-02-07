@@ -11,7 +11,6 @@ namespace ProductComp
         public int Quantidade;
         public int Id;
         public double Valor;
-        Products Farinha = new Products("Farinha", 15, 1, 7);
         public Products(string nome, int quantidade, int id, double valor)
         {
             Nome = nome;
@@ -21,25 +20,23 @@ namespace ProductComp
         }
         public void PrintStock()
         {
-            Console.WriteLine("Nome: " + Farinha.Nome, "\nQuantidade: " + Farinha.Quantidade, "\nId: " + Farinha.Id, "\nValor: " + Farinha.Valor);
+            Console.WriteLine("Nome: " + this.Nome + "\nQuantidade: " + this.Quantidade + "\nId: " + this.Id + "\nValor: " + this.Valor + "\n");
         }
+        public void RemoveStock(int quantidade)
+        {
+            // 3 farinha, foi removido 2: "você diminuiu a farinha em 2 (3 -> 1)"
 
-        public void RemoveStock(string nome, int quantidade)
-        {
-            switch (nome)
-            {
-                case "farinha":
-                    Console.Write("você aumentou a " + Farinha.Nome, " em " + quantidade, " (" + Farinha.Quantidade);
-                    Farinha.Quantidade -= quantidade;
-                    Console.Write(" -> " + Farinha.Quantidade, ")");
-                    break;
-            }
+            Console.Write("você diminuiu a " + this.Nome + " em " + quantidade + " (" + this.Quantidade);
+            this.Quantidade -= quantidade;
+            Console.Write(" -> " + this.Quantidade + ")");
         }
-        public void AddStock(Products produto, int quantidade)
+        public void AddStock(int quantidade)
         {
-            Console.Write("você aumentou a " + produto.Nome, " em " + quantidade, " (" + produto.Quantidade);
-            produto.Quantidade += quantidade;
-            Console.Write(" -> " + produto.Quantidade, ")");
+            // 3 farinha, foi adicionado 2: "você aumentou a farinha em 2 (3 -> 5)"
+
+            Console.Write("você aumentou a " + this.Nome + " em " + quantidade + " (" + this.Quantidade);
+            this.Quantidade += quantidade;
+            Console.Write(" -> " + this.Quantidade + ")");
         }
     }
 }
